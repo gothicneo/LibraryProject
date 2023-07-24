@@ -22,15 +22,33 @@ response2 = requests.get("https://api.nytimes.com/svc/books/v3/lists/best-seller
 titles = response2.json()['results']
 # jprint(titles)
 
-all_titles = []
+one_author_results =[]
 
-for all_books in titles: 
-    results = all_books['title']
-    all_titles.append(results)
+for one_author in titles:
+    book_data = {
+        'title': one_author['title'],
+        'author': one_author['author'],
+        'description': one_author['description'],
+        'publisher': one_author['publisher'],
+        'isbn': one_author['isbns'][0]['isbn10'] if len(one_author['isbns']) > 0 else None
+    }
+    one_author_results.append(book_data)
 
-print(all_titles)
+print("Number of results:")
+print(len(one_author_results))
+jprint(one_author_results)
+
+
+# all_titles = []
+
+# for all_books in titles: 
+#     results = all_books['title']
+#     all_titles.append(results)
+
+# print("Titles in database")
+# print(all_titles)
 
 
 # print(response2.status_code)
 
-jprint(response2.json())
+# jprint(response2.json())
