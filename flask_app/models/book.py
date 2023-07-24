@@ -11,7 +11,6 @@ class Book:
         self.author = db_data['author']
         self.pages = db_data['pages']
         self.publisher = db_data['publisher']
-        self.added_by = db_data['added_by']
         self.created_at = db_data['created_at']
         self.updated_at = db_data['updated_at']
         self.saved_by = []
