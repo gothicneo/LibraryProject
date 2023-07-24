@@ -1,3 +1,5 @@
+#Vivian Work flow
+
 from flask_app.config.mysqlconnection import MySQLConnection, connectToMySQL
 from flask_app.models import user
 from flask import flash
